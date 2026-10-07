@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ECEAE3">
+<title>Lost Time Monster</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Permanent+Marker&family=Special+Elite&display=swap" rel="stylesheet">
+<script>window.__v = Date.now(); document.write('<link rel="stylesheet" href="css/style.css?v=' + window.__v + '">');</script>
+<noscript><link rel="stylesheet" href="css/style.css"></noscript>
+</head>
+<body>
+<div class="phone" id="phone">
+  <svg class="skyline" id="skyline" viewBox="0 0 460 150" preserveAspectRatio="xMidYMax slice" aria-hidden="true"></svg>
+
+  <header class="top">
+    <a class="back" id="backBtn" href="#/" aria-label="Back">←</a>
+    <button class="about-link" id="aboutBtn" type="button">about</button>
+  </header>
+
+  <!-- HOME -->
+  <section class="view" id="v-home">
+    <h1 class="title" id="title" aria-label="Lost Time Monster"><span>LOST</span><span>TIME</span><span>MONSTER</span></h1>
+    <div class="stage"><div class="mon-wrap" id="homeMon"></div></div>
+    <i class="press l" aria-hidden="true"></i><i class="press r" aria-hidden="true"></i>
+    <div class="panel">
+      <div class="plate" aria-live="polite">
+        <span class="plate-k">NEW YORKERS LOST</span>
+        <span class="num" id="count">0</span>
+        <span class="plate-k">MINUTES TODAY</span>
+      </div>
+      <p class="mood"><span id="moodLine"></span></p>
+      <a class="btn" href="#/report"><span>FEED THE MONSTER</span><span>→</span></a>
+      <div class="links">
+        <a href="#/wall">→ Lost &amp; Found</a>
+        <a href="#/dress">→ Dress up</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="band" id="band" aria-hidden="true"><div class="band-in" id="bandIn"></div></div>
+
+  <!-- REPORT -->
+  <section class="view scroll" id="v-report">
+    <div class="report-head">
+      <h2 class="form-title">LOST TIME<br>REPORT</h2>
+      <p class="form-no">FORM No. <span id="formNo">0001</span> — FILL IN, THEN FEED</p>
+    </div>
+    <div class="report-mon"><div class="mon-wrap" id="reportMon"></div></div>
+    <form class="sheet" id="reportForm" autocomplete="off">
+      <div class="row">
+        <span class="q">1. WHAT DID YOU LOSE?</span>
+        <div class="chips" id="chips"></div>
+      </div>
+      <div class="row">
+        <label class="q" for="reasonInput">2. WHERE WERE YOU? WHAT HAPPENED?</label>
+        <input id="reasonInput" maxlength="80" placeholder="type here…" required>
+      </div>
+      <div class="row how">
+        <span class="q">3. HOW LONG?</span>
+        <button type="button" class="step" id="minMinus" aria-label="Fewer minutes">−</button>
+        <output id="minOut">10</output>
+        <button type="button" class="step" id="minPlus" aria-label="More minutes">+</button>
+        <em>MIN</em>
+      </div>
+    </form>
+    <button class="btn" id="feedBtn" type="submit" form="reportForm"><span>FEED IT</span><span>→</span></button>
+    <div class="done" id="done" hidden>
+      <p class="big" id="doneBig"></p>
+      <p id="doneSmall"></p>
+      <a class="btn" href="#/"><span>SEE IT GROW</span><span>→</span></a>
+      <button class="btn outline" id="again" type="button"><span>FEED ANOTHER</span><span>→</span></button>
+    </div>
+  </section>
+
+  <!-- WALL -->
+  <section class="view scroll" id="v-wall">
+    <div class="wall-pad">
+      <h2 class="ransom" aria-label="Lost and Found"><span class="r1">LOST</span><span class="r2">&amp;</span><span class="r3">FOUND</span></h2>
+      <div id="wallGroups"></div>
+    </div>
+  </section>
+
+  <!-- DRESS -->
+  <section class="view" id="v-dress">
+    <div class="dress-mon"><div class="mon-wrap" id="dressMon"></div><p class="src" id="dressSrc"></p></div>
+    <div class="sheet scroll" id="dressSheet">
+      <div class="row-top">
+        <label class="mood-range">MOOD <input type="range" id="moodRange" min="0" max="4" value="2"></label>
+        <button class="btn small" id="dice" type="button"><span>SURPRISE ME</span></button>
+      </div>
+      <div id="groups"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT sheet -->
+  <div class="about" id="about" hidden>
+    <div class="about-card">
+      <h2>LOST TIME MONSTER</h2>
+      <p>New Yorkers lose time every day — waiting for trains, standing in lines, scrolling. Here, you report the minutes you lost, like “12 minutes, L train delay.”</p>
+      <p>Instead of disappearing, those minutes are eaten by the city’s broken clocks, which combine into one monster clock. It grows bigger and happier with every minute, until it bursts.</p>
+      <p>You can also take your time back by writing what you wish you’d done with it. The monster shrinks.</p>
+      <p class="fine">The monsters are drawn after real New York public clocks — you’ll see which one in Dress up.</p>
+      <p class="fine">A day starts with a new baby monster at midnight, New York time.<br><span id="sharedNote"></span></p>
+      <button class="btn" id="aboutClose" type="button"><span>OK</span><span>→</span></button>
+    </div>
+  </div>
+
+  <div class="about" id="take" hidden>
+    <div class="about-card">
+      <p class="cap" id="takeWhen"></p>
+      <h2 id="takeTitle"></h2>
+      <form id="takeForm" autocomplete="off">
+        <label class="q" for="takeInput">WHAT WERE YOU GOING TO DO WITH IT?</label>
+        <input id="takeInput" maxlength="80" placeholder="call my mom…" required>
+        <button class="btn" type="submit"><span>TAKE IT BACK</span><span>→</span></button>
+        <button class="btn outline" id="takeCancel" type="button"><span>NEVER MIND</span><span>→</span></button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <div class="boom" id="boom" hidden>
+    <p class="big"><span>BOOM.</span></p>
+    <p id="boomText"></p>
+    <button class="btn" id="hatch" type="button"><span>HATCH A NEW ONE</span><span>→</span></button>
+  </div>
+  <div class="demo" id="demo" hidden></div>
+</div>
+
+<script>
+/* always fetch matching copies of every file (GitHub Pages caches for ~10 min, and a stale script with fresh HTML shows a blank page) */
+['config', 'hand', 'icons', 'monster', 'store', 'app'].forEach(function (n) { document.write('<script src="js/' + n + '.js?v=' + window.__v + '"><\/script>'); });
+</script>
+</body>
+</html>
